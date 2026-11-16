@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aziz Üzümcü – Mobile Games Portfolio</title>
+<meta name="description" content="Aziz Üzümcü – Bilkent Computer Science graduate. I designed and released two mobile games on Google Play: Flower Village and Sky Kitchen.">
+<meta property="og:title" content="Aziz Üzümcü – Mobile Games Portfolio">
+<meta property="og:description" content="Two mobile games on Google Play, made from idea to launch, ads and player data.">
+<meta property="og:image" content="img/fv-stall.webp">
+<link rel="icon" href="img/sky-kitchen-icon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --card: #ffffff;
+    --ink: #16202a;
+    --muted: #5b6672;
+    --line: #e3e7ec;
+    --accent: #0e6b7c;
+    --accent-soft: #e3f1f3;
+    --fv: #4f8a3c;
+    --fv-soft: #eef6e8;
+    --sk: #2f7fd6;
+    --sk-soft: #e7f1fc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: Inter, "Segoe UI", system-ui, sans-serif; font-size: 17px; line-height: 1.6; }
+  a { color: var(--accent); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  /* intro */
+  header.intro { padding: 72px 0 40px; }
+  .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 5px 12px; border-radius: 99px; }
+  h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.05; letter-spacing: -0.03em; margin: 18px 0 16px; font-weight: 800; }
+  .lead { font-size: 1.2rem; color: var(--muted); max-width: 680px; }
+  .lead b { color: var(--ink); }
+  .contact { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1.5px solid var(--line); background: var(--card); color: var(--ink); transition: border-color .15s, transform .15s; }
+  .btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+
+  /* numbers */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 8px 0 64px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .stat b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .stat span { color: var(--muted); font-size: 14.5px; }
+
+  /* games */
+  h2 { font-size: 1.9rem; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .section-sub { color: var(--muted); margin-bottom: 26px; }
+  .game { background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; margin-bottom: 28px; }
+  .game-head { display: flex; align-items: center; gap: 16px; padding: 26px 28px 0; }
+  .game-head img { width: 64px; height: 64px; border-radius: 16px; flex: none; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+  .game-head h3 { font-size: 1.6rem; letter-spacing: -0.02em; line-height: 1.15; }
+  .tag { font-size: 14px; font-weight: 600; }
+  .fv .tag { color: var(--fv); }
+  .sk .tag { color: var(--sk); }
+  .game-body { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; padding: 22px 28px 28px; }
+  .pitch { color: var(--muted); margin-bottom: 14px; }
+  .game ul { list-style: none; }
+  .game li { padding-left: 26px; position: relative; margin-bottom: 7px; }
+  .game li::before { content: ""; position: absolute; left: 4px; top: .62em; width: 9px; height: 9px; border-radius: 3px; }
+  .fv li::before { background: var(--fv); }
+  .sk li::before { background: var(--sk); }
+  .game li b { font-weight: 700; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .links .btn { padding: 8px 14px; font-size: 14px; }
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-self: start; padding: 14px; border-radius: 16px; }
+  .fv .shots { background: var(--fv-soft); }
+  .sk .shots { background: var(--sk-soft); }
+  .shots img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 10px; display: block; box-shadow: 0 2px 10px rgba(0,0,0,.12); }
+
+  /* how I work */
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 26px 0 64px; }
+  .skill { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .skill h4 { font-size: 1.05rem; margin-bottom: 4px; }
+  .skill p { color: var(--muted); font-size: 15px; }
+  .note { background: var(--accent-soft); border-radius: 14px; padding: 18px 20px; color: var(--ink); font-size: 15.5px; margin-top: -40px; margin-bottom: 64px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
+
+  @media (max-width: 820px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .game-body { grid-template-columns: 1fr; }
+    .shots { order: -1; }
+    .skills { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    header.intro { padding-top: 48px; }
+    .wrap { padding: 0 16px; }
+    .game-head, .game-body { padding-left: 18px; padding-right: 18px; }
+    .stat b { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="intro">
+  <div class="wrap">
+    <span class="eyebrow">Product Specialist · Mobile Games</span>
+    <h1>Aziz Üzümcü</h1>
+    <p class="lead">Computer Science graduate from Bilkent University. I designed and released <b>two mobile games on Google Play</b> on my own, and handled every step: game design, testing, store page, launch, user acquisition, analytics and ads.</p>
+    <div class="contact">
+      <a class="btn primary" href="#games">See my games</a>
+      <a class="btn" href="mailto:azizuzumcu7@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+      <a class="btn" href="https://www.linkedin.com/in/aziz-%C3%BCz%C3%BCmc%C3%BC/">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg>LinkedIn</a>
+      <a class="btn" href="https://github.com/azizuzumcu">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="stats" aria-label="Key numbers">
+      <div class="stat"><b>2</b><span>games live on Google Play</span></div>
+      <div class="stat"><b>5,700+</b><span>installs in total</span></div>
+      <div class="stat"><b>38 min</b><span>average play time in Flower Village</span></div>
+      <div class="stat"><b>3.2 TRY</b><span>cost per install, Flower Village ads</span></div>
+    </section>
+
+    <section id="games">
+      <h2>My games</h2>
+      <p class="section-sub">Both made under my own small studio, AU Games, from July 2026.</p>
+
+      <article class="game fv">
+        <div class="game-head">
+          <img src="img/flower-village-icon.webp" alt="">
+          <div><h3>Flower Village</h3><span class="tag">Cozy merge game · Android</span></div>
+        </div>
+        <div class="game-body">
+          <div>
+            <p class="pitch">Merge flowers, grow them in a greenhouse, craft products in the workshop and serve the villagers who come to your stall.</p>
+            <ul>
+              <li>Designed the core loop: merge, grow, craft and serve.</li>
+              <li>Made <b>13 flowers, 13 villagers, 7 machines and 10 places</b>, and translated the game into <b>7 languages</b>.</li>
+              <li>Added daily tasks, two mini-games and a village rebuilding goal to bring players back every day.</li>
+              <li>Launched in the <b>Philippines</b> and <b>Brazil</b> after a closed test: <b>5,300+ installs</b>, <b>25%</b> store page conversion.</li>
+              <li>Ran 2 Google Ads campaigns: <b>4,600+ installs</b> at <b>3.2 TRY</b> each, below my target cost.</li>
+              <li>Tracked player steps with Firebase. Average play time: <b>38 minutes</b>, about 2× similar games.</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://play.google.com/store/apps/details?id=com.azizuzumcu.mergebloom">Google Play</a>
+              <a class="btn" href="https://augamesstudio.github.io/FlowerVillage/">Website</a>
+              <a class="btn" href="https://augamesstudio.github.io/FlowerVillage/design.html">Game design</a>
+            </div>
+          </div>
+          <div class="shots">
+            <img src="img/fv-stall.webp" alt="A villager at the flower stall" loading="lazy">
+            <img src="img/fv-field.webp" alt="The greenhouse" loading="lazy">
+            <img src="img/fv-merchant.webp" alt="The trading post" loading="lazy">
+          </div>
+        </div>
+      </article>
+
+      <article class="game sk">
+        <div class="game-head">
+          <img src="img/sky-kitchen-icon.webp" alt="">
+          <div><h3>Sky Kitchen</h3><span class="tag">Physics puzzle game · Android · Unity</span></div>
+        </div>
+        <div class="game-body">
+          <div>
+            <p class="pitch">Ingredients fall from the sky. Place kitchen tools to steer them into the right machines, and make shakes, juices and ice cream before time runs out.</p>
+            <ul>
+              <li>Designed the puzzle idea: tools steer falling food, real physics decides the rest.</li>
+              <li>Built <b>50 levels</b> with 6 tools, 4 machines and 15+ sky obstacles, adding a new idea every few levels.</li>
+              <li>Designed the game economy: coins, hearts, boosters, power-ups and rewarded ads.</li>
+              <li>Set up GameAnalytics events (start, win, fail, restart) on every level to find where players get stuck.</li>
+              <li>Wrote the game design document and released the game in <b>November 2026</b>.</li>
+              <li>Ran a 10-day Google Ads test in <b>Serbia</b>: <b>543 installs</b> at <b>12.86 TRY</b> each, below my target cost.</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://play.google.com/store/apps/details?id=com.augames.skykitchen">Google Play</a>
+              <a class="btn" href="https://augamesstudio.github.io/sky-kitchen/">Website</a>
+              <a class="btn" href="https://augamesstudio.github.io/sky-kitchen/design.html">Game design</a>
+            </div>
+          </div>
+          <div class="shots">
+            <img src="img/sk-falling-fruit.webp" alt="Steering the falling fruit" loading="lazy">
+            <img src="img/sk-shakes-juice-ice-cream.webp" alt="Shakes, juice and ice cream" loading="lazy">
+            <img src="img/sk-sky-surprises.webp" alt="Sky obstacles" loading="lazy">
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2>What I did on both games</h2>
+      <div class="skills">
+        <div class="skill"><h4>Game design</h4><p>Core loops, levels, content and design documents with art for every object.</p></div>
+        <div class="skill"><h4>Economy & monetization</h4><p>Coins, boosters and power-ups, with rewarded ads only (no forced ads).</p></div>
+        <div class="skill"><h4>Launch</h4><p>Closed testing, store pages, soft launch by country and 7-language localization.</p></div>
+        <div class="skill"><h4>User acquisition</h4><p>Google Ads app campaigns with a target cost per install, read and compared by country.</p></div>
+        <div class="skill"><h4>Analytics</h4><p>Firebase and GameAnalytics events to see where players stop or get stuck.</p></div>
+        <div class="skill"><h4>Tools</h4><p>Unity, Google Play Console, Google Ads, Firebase, GameAnalytics, AdMob, Git.</p></div>
+      </div>
+      <p class="note">I built both games with AI coding tools. I owned the design, the art direction and every product decision.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Aziz Üzümcü · Ankara, Türkiye</span>
+    <nav>
+      <a href="mailto:azizuzumcu7@gmail.com">azizuzumcu7@gmail.com</a>
+      <a href="https://www.linkedin.com/in/aziz-%C3%BCz%C3%BCmc%C3%BC/">LinkedIn</a>
+      <a href="https://github.com/azizuzumcu">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
